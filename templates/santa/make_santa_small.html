@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>making santa page</title>
+
+    <style>
+        #background {
+            width: 1280px;
+            height: 720px;
+            background-image: url('https://i.imgur.com/1BnCVDi.png');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='background' >
+        <a href = '/'>main page</a><br><br>
+    
+        <div style="position: relative; top: 30px; left: 1000px;">
+            <img id="fat_image" src="https://i.imgur.com/fPTtD7R.png" onclick="onClickFat()" alt="fat potion">
+            <div style="position: absolute; top: 200px;">
+                <img id="char_image" src="https://i.imgur.com/lXhzcPj.png" onclick="onClickChar()" alt="char potion">
+            </div>
+            <div style="position: absolute; top: 400px;">
+                <img id="hair_image" src="https://i.imgur.com/CJQLeKF.png" onclick="onClickHair()" alt="hair potion">
+            </div>    
+        </div>
+    </div>
+    <script>
+        let isSelectedHair = false;
+        let isSelectedFat = false;
+        let isSelectedChar = false;
+
+        function ChangeImage() {
+            document.querySelector('#hair_image').src = 
+                isSelectedHair 
+                    ? 'https://i.imgur.com/c2UTwu4.png' 
+                    : 'https://i.imgur.com/CJQLeKF.png';
+
+            document.querySelector('#fat_image').src = 
+                isSelectedFat 
+                    ? 'https://i.imgur.com/KJVS0Fg.png' 
+                    : 'https://i.imgur.com/fPTtD7R.png';
+
+            document.querySelector('#char_image').src = 
+                isSelectedChar 
+                    ? 'https://i.imgur.com/PZKUyUH.png' 
+                    : 'https://i.imgur.com/lXhzcPj.png';
+        }
+
+        function onClickHair() {
+            isSelectedHair = !isSelectedHair;
+            isSelectedFat = false;
+            isSelectedChar = false;
+
+            ChangeImage()
+        }
+
+        function onClickFat() {
+            isSelectedFat = !isSelectedFat;
+            isSelectedHair = false;
+            isSelectedChar = false;
+
+            ChangeImage()
+        }
+
+        function onClickChar() {
+            isSelectedChar = !isSelectedChar;
+            isSelectedFat = false;
+            isSelectedHair = false;
+
+            ChangeImage()
+        }
+    </script>
+</body>
+</html>
